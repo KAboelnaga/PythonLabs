@@ -5,38 +5,38 @@
 #? and then write them to a file called popular
 #? words.txt
 
-# import sys
+import sys
 
-# if len(sys.argv) < 2:
-#     print('Please enter the name of the input file when running!')
-#     sys.exit(1)
+if len(sys.argv) < 2:
+    print('Please enter the name of the input file when running!')
+    sys.exit(1)
 
-# try:
-#     file = open(sys.argv[1], 'r')
-#     content = file.read().split()
-#     file.close()
-# except Exception as e:
-#     print("Input file not found")
+try:
+    file = open(sys.argv[1], 'r')
+    content = file.read().split()
+    file.close()
+except Exception as e:
+    print("Input file not found")
 
-# hashmap = {}
-# for word in content:
-#     if word in hashmap:
-#         hashmap[word] += 1
-#     else:
-#         hashmap[word] = 1
+hashmap = {}
+for word in content:
+    if word in hashmap:
+        hashmap[word] += 1
+    else:
+        hashmap[word] = 1
 
 
-# sorted_hashmap = dict(sorted(hashmap.items(), key=lambda item: item[1], reverse=True))
+sorted_hashmap = dict(sorted(hashmap.items(), key=lambda item: item[1], reverse=True))
 
-# file2 = open('popular_words.txt', 'w')
-# count = 0
-# for count, (item, freq) in enumerate(sorted_hashmap.items()):
-#     file2.write(f"{count+1}. {item}: {freq}\n")
-#     count += 1
-#     if count == 20:
-#         file2.close()
-#         break
-# file2.close()
+file2 = open('popular_words.txt', 'w')
+count = 0
+for count, (item, freq) in enumerate(sorted_hashmap.items()):
+    file2.write(f"{count+1}. {item}: {freq}\n")
+    count += 1
+    if count == 20:
+        file2.close()
+        break
+file2.close()
 
 #? 2-Given two points represented as x1, y1, x2, y2, r the (float)return (float) distance
 #? between
